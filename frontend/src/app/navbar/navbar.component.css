@@ -1,0 +1,72 @@
+.active {
+    border-bottom: 2px solid #ecebeb;
+    transform: scale(1.02);
+    color: #ecebeb;
+}
+
+.activeMobile{
+    
+    transform: scale(1.02);
+}
+.activeMobile span {
+    color: #ecebeb;
+}
+.activeMobile svg {
+    stroke: #fff;
+}
+
+.NavBar {
+    user-select: none;
+}
+
+.spin-and-bounce {
+    animation: spinAndBounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.spin-back {
+    animation: spinBack 0.5s ease-out forwards;
+}
+
+@keyframes spinAndBounce {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    70% {
+        transform: rotate(720deg);
+    }
+
+    85% {
+        transform: rotate(680deg);
+    }
+
+    95% {
+        transform: rotate(710deg);
+    }
+
+    100% {
+        transform: rotate(700deg);
+    }
+}
+
+@keyframes spinBack {
+    from {
+        transform: rotate(700deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+
+
+@media screen and (min-width: 340px) {
+    .list {
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+    }
+}

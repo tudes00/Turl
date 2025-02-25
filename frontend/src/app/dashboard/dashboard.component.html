@@ -1,0 +1,81 @@
+<div class="relative container mx-auto flex flex-col my-5 min-h-[calc(100vh-64px)] animate-fade-in px-4">
+  <div class="w-full  border-b border-gray-600">
+    <div class="container mx-auto flex justify-between items-center py-3">
+      <input type="text" placeholder="Search links..." style="outline: none;"
+        class="p-2 bg-gray-950 text-gray-300 rounded-xl border border-gray-950 focus:ring focus:ring-blue-700 transition-all w-1/3"
+       [(ngModel)]="filterText">
+      <button (click)="openPopup('newlink')"
+        class="popup px-4 py-2 bg-blue-600 text-white rounded-xl border border-blue-700 hover:bg-blue-700 transition-all">
+        + Create Link
+      </button>
+    </div>
+
+
+  </div>
+
+  <div class="w-full flex justify-center">
+    <div class="max-w-lg mt-4 text-center" *ngIf="errorMessage || message">
+      <div *ngIf="errorMessage" class="bg-red-900 text-red-500 font-medium p-3 rounded-xl border border-red-700 mb-4">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="message" class="bg-green-900 text-green-500 font-medium p-3 rounded-xl border border-green-700 mb-4">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-2 grid lg:grid-cols-2 gap-2 grid-cols-1">
+    <div *ngFor="let link of filteredLinks" 
+  class="flex flex-col rounded-xl border border-gray-700 p-4 bg-gray-950 shadow-md transition-all hover:shadow-lg">
+      <div class="flex w-full items-center justify-between space-x-2">
+        <a target="_blank" href="/s/{{ link.short_link }}"
+          class="block space-x-[1px] overflow-hidden truncate font-medium transition-opacity duration-75 text-blue-400 hover:text-blue-300">/{{
+          link.short_link }}</a>
+        <div class="flex justify-between space-x-2">
+          <button (click)="openPopup('clickinfo', link)"
+            class="popup text-sm brightness-150 transition-opacity duration-75">Click
+            information</button>
+          <p class="text-gray-500">|</p>
+          <svg [attr.id]="'copy_' + link.short_link" (click)="copy(link.short_link)" viewBox="0 0 24 24"
+            stroke="currentColor" class="size-5 cursor-pointer transition-all text-gray-300 hover:text-white" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M17.676 14.248C17.676 15.8651 16.3651 17.176 14.748 17.176H7.428C5.81091 17.176 4.5 15.8651 4.5 14.248V6.928C4.5 5.31091 5.81091 4 7.428 4H14.748C16.3651 4 17.676 5.31091 17.676 6.928V14.248Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M10.252 20H17.572C19.1891 20 20.5 18.689 20.5 17.072V9.75195" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+          <svg (click)="openPopup('settings', link)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor"
+            class="popup size-5 cursor-pointer transition-all text-gray-300 hover:text-white">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          </svg>
+          <svg (click)="openPopup('delete', link)" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="popup size-5 cursor-pointer text-red-600 hover:text-red-500 transition-all" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M18 6L17.1991 18.0129C17.129 19.065 17.0939 19.5911 16.8667 19.99C16.6666 20.3412 16.3648 20.6235 16.0011 20.7998C15.588 21 15.0607 21 14.0062 21H9.99377C8.93927 21 8.41202 21 7.99889 20.7998C7.63517 20.6235 7.33339 20.3412 7.13332 19.99C6.90607 19.5911 6.871 19.065 6.80086 18.0129L6 6M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="flex w-full items-center justify-between space-x-2 text-gray-500 text-sm">
+        <a target="_blank" href="{{ link.original_url }}" class="transition-all truncate hover:text-gray-200" title="Shortened Link with Click Tracking">{{ link.original_url }}</a>
+        <p>{{ link.created_at }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-pop-up (reloadLinksEvent)="loadLinks()"></app-pop-up>

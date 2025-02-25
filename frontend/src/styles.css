@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #ecebeb;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+html, body { height: 100%; }
+
+
+::selection {
+    background: rgba(86, 150, 252, 0.452);
+    color: #ffffff;
+}
+
+
+
+.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeInMove {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    60% {
+        opacity: 0.2;
+        transform: translateY(0px) scale(1);
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.animate-fade-in-move {
+    animation: fadeInMove 1s ease-out forwards;
+}

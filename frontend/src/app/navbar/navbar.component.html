@@ -1,0 +1,171 @@
+<header
+  class="z-10 NavBar text-gray-400 sticky top-0 backdrop-blur-lg bg-gray-950/95 shadow-xl border-b rounded-br-2xl rounded-bl-2xl border-white/20">
+  <div class="container mx-auto flex flex-wrap items-center justify-between py-1 relative px-4">
+    <a routerLink="/home" class="flex items-center title-font font-medium text-white" (mouseenter)="isHovered = true"
+      (mouseleave)="isHovered = false">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
+        class="size-5" [class.spin-and-bounce]="isHovered" [class.spin-back]="!isHovered">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+      </svg>
+      <span class="ml-2 text-3xl font-bold">Turl</span>
+    </a>
+
+    <svg (click)="showList()" class="size-9 list visible cursor-pointer" viewBox="0 0 24 24" fill="none"
+      transform="matrix(-1, 0, 0, 1, 0, 0)" xmlns="http://www.w3.org/2000/svg" stroke="#ebebeb">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M8 6.00067L21 6.00139M8 12.0007L21 12.0015M8 18.0007L21 18.0015M3.5 6H3.51M3.5 12H3.51M3.5 18H3.51M4 6C4 6.27614 3.77614 6.5 3.5 6.5C3.22386 6.5 3 6.27614 3 6C3 5.72386 3.22386 5.5 3.5 5.5C3.77614 5.5 4 5.72386 4 6ZM4 12C4 12.2761 3.77614 12.5 3.5 12.5C3.22386 12.5 3 12.2761 3 12C3 11.7239 3.22386 11.5 3.5 11.5C3.77614 11.5 4 11.7239 4 12ZM4 18C4 18.2761 3.77614 18.5 3.5 18.5C3.22386 18.5 3 18.2761 3 18C3 17.7239 3.22386 17.5 3.5 17.5C3.77614 17.5 4 17.7239 4 18Z"
+          stroke="#ebebeb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </g>
+    </svg>
+
+    <nav class="hidden space-x-4 items-center text-sm py-2 nav">
+      <a href="https://github.com/tudes00/Turl" target="_blank">
+        <svg viewBox="0 0 256 250" class="w-5 h-5 fill-current text-gray-400 hover:fill-white transition-colors"
+          xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+          <path
+            d="M128.001 0C57.317 0 0 57.307 0 128.001c0 56.554 36.676 104.535 87.535 121.46 6.397 1.185 8.746-2.777 8.746-6.158 0-3.052-.12-13.135-.174-23.83-35.61 7.742-43.124-15.103-43.124-15.103-5.823-14.795-14.213-18.73-14.213-18.73-11.613-7.944.876-7.78.876-7.78 12.853.902 19.621 13.19 19.621 13.19 11.417 19.568 29.945 13.911 37.249 10.64 1.149-8.272 4.466-13.92 8.127-17.116-28.431-3.236-58.318-14.212-58.318-63.258 0-13.975 5-25.394 13.188-34.358-1.329-3.224-5.71-16.242 1.24-33.874 0 0 10.749-3.44 35.21 13.121 10.21-2.836 21.16-4.258 32.038-4.307 10.878.049 21.837 1.47 32.066 4.307 24.431-16.56 35.165-13.12 35.165-13.12 6.967 17.63 2.584 30.65 1.255 33.873 8.207 8.964 13.173 20.383 13.173 34.358 0 49.163-29.944 59.988-58.447 63.157 4.591 3.972 8.682 11.762 8.682 23.704 0 17.126-.148 30.91-.148 35.126 0 3.407 2.304 7.398 8.792 6.14C219.37 232.5 256 184.537 256 128.002 256 57.307 198.691 0 128.001 0Zm-80.06 182.34c-.282.636-1.283.827-2.194.39-.929-.417-1.45-1.284-1.15-1.922.276-.655 1.279-.838 2.205-.399.93.418 1.46 1.293 1.139 1.931Zm6.296 5.618c-.61.566-1.804.303-2.614-.591-.837-.892-.994-2.086-.375-2.66.63-.566 1.787-.301 2.626.591.838.903 1 2.088.363 2.66Zm4.32 7.188c-.785.545-2.067.034-2.86-1.104-.784-1.138-.784-2.503.017-3.05.795-.547 2.058-.055 2.861 1.075.782 1.157.782 2.522-.019 3.08Zm7.304 8.325c-.701.774-2.196.566-3.29-.49-1.119-1.032-1.43-2.496-.726-3.27.71-.776 2.213-.558 3.315.49 1.11 1.03 1.45 2.505.701 3.27Zm9.442 2.81c-.31 1.003-1.75 1.459-3.199 1.033-1.448-.439-2.395-1.613-2.103-2.626.301-1.01 1.747-1.484 3.207-1.028 1.446.436 2.396 1.602 2.095 2.622Zm10.744 1.193c.036 1.055-1.193 1.93-2.715 1.95-1.53.034-2.769-.82-2.786-1.86 0-1.065 1.202-1.932 2.733-1.958 1.522-.03 2.768.818 2.768 1.868Zm10.555-.405c.182 1.03-.875 2.088-2.387 2.37-1.485.271-2.861-.365-3.05-1.386-.184-1.056.893-2.114 2.376-2.387 1.514-.263 2.868.356 3.061 1.403Z" />
+        </svg>
+      </a>
+      
+      <a routerLink="/home" routerLinkActive="active" class="hover:text-white transition-all">home</a>
+      <a routerLink="/dashboard" routerLinkActive="active" class="hover:text-white transition-all">Dashboard</a>
+      <button *ngIf="!login" routerLink="/login"
+        class="px-4 py-2 bg-gray-950 text-gray-400 rounded-xl border border-gray-500 hover:bg-gray-951 hover:text-white hover:border-white transition-all duration-300 ease-in-out font-medium">
+        Start
+      </button>
+
+      <div *ngIf="login" class="relative dropDown">
+        <img (click)="toggleDropdown()" [src]="userProfileImg" (error)="userProfileImg = 'default.jpg'"  alt="Profil"
+          class="w-8 h-8 rounded-full cursor-pointer hover:ring-2 hover:ring-white/50 transition-all duration-300">
+
+        <div [ngClass]="isDropdownOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'"
+          class="absolute right-0 w-48 mt-5 bg-gray-950/95 backdrop-blur-sm border border-white/10 rounded-xl shadow-2xl transition-all duration-300 ease-out">
+          <ul class="py-2 px-1">
+            <li routerLink="/settings" routerLinkActive="activeMobile"
+              class="flex items-center px-3 py-2 space-x-3 rounded-xl cursor-pointer hover:bg-white/5 transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5 text-gray-400">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              </svg>
+              <span class="text-gray-400 font-medium">Settings</span>
+            </li>
+
+            <div class="my-2 border-t border-white/5"></div>
+
+            <li (click)="signOut()"
+              class="flex items-center px-3 py-2 space-x-3 rounded-xl cursor-pointer hover:bg-red-500/5 transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5 text-red-500">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+              </svg>
+              <span class="text-red-500 font-medium">Sign out</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+
+<div *ngIf="isListOpen" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-10 transition-all duration-300"
+  [ngClass]="isListOpen ? 'opacity-100' : 'opacity-0'">
+</div>
+
+<div
+  class="list fixed top-0 right-0 w-3/5 h-screen bg-gray-950/95 backdrop-blur-md shadow-xl border-l border-white/10 transition-all duration-300 ease-in-out z-20"
+  [ngClass]="{'translate-x-0': isListOpen, 'translate-x-full': !isListOpen}">
+
+  <nav class="flex flex-col h-full p-4">
+    <ul class="space-y-1 text-base font-medium pt-4 flex flex-col h-full">
+      <li>
+        <a routerLink="/home" routerLinkActive="activeMobile"
+          class="flex items-center px-3 py-2 space-x-3 transition-colors" (click)="showList()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.3103 1.77586C11.6966 1.40805 12.3034 1.40805 12.6897 1.77586L20.6897 9.39491L23.1897 11.7759C23.5896 12.1567 23.605 12.7897 23.2241 13.1897C22.8433 13.5896 22.2103 13.605 21.8103 13.2241L21 12.4524V20C21 21.1046 20.1046 22 19 22H14H10H5C3.89543 22 3 21.1046 3 20V12.4524L2.18966 13.2241C1.78972 13.605 1.15675 13.5896 0.775862 13.1897C0.394976 12.7897 0.410414 12.1567 0.810345 11.7759L3.31034 9.39491L11.3103 1.77586ZM5 10.5476V20H9V15C9 13.3431 10.3431 12 12 12C13.6569 12 15 13.3431 15 15V20H19V10.5476L12 3.88095L5 10.5476ZM13 20V15C13 14.4477 12.5523 14 12 14C11.4477 14 11 14.4477 11 15V20H13Z"
+                fill="currentColor"></path>
+            </g>
+          </svg>
+          <span class="text-gray-400">Home</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/dashboard" routerLinkActive="activeMobile"
+          class="flex items-center px-3 py-2 space-x-3 transition-colors" (click)="showList()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path stroke="currentColor" stroke-width="2"
+                d="M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5ZM14 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5ZM4 16a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3ZM14 13a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-6Z">
+              </path>
+            </g>
+          </svg>
+          <span class="text-gray-400">Dashboard</span>
+        </a>
+      </li>
+
+      <li class="mt-4">
+        <button *ngIf="!login" routerLink="/login"
+          class="w-full px-4 py-2 text-gray-400 rounded-lg border border-gray-500" (click)="showList()">
+          Start
+        </button>
+      </li>
+
+
+    </ul>
+    <ul *ngIf="login" class="space-y-1 text-base font-medium flex flex-col mt-auto">
+      <li>
+        <a routerLink="/settings" routerLinkActive="activeMobile"
+          class="flex items-center px-3 py-2 space-x-3 transition-colors" (click)="showList()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-width="2"
+              d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+            <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          </svg>
+          <span class="text-gray-400">Settings</span>
+        </a>
+      </li>
+
+      <li>
+        <a (click)="signOut()" class="flex items-center px-3 py-2 space-x-3 transition-colors cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path
+              d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+          </svg>
+          <span class="text-red-500">Sign out</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="mt-auto flex justify-between items-end pt-4 border-t border-gray-600">
+      <a href="https://github.com/tudes00/Turl" target="_blank" class="hover:opacity-80 transition-opacity">
+        <svg viewBox="0 0 256 250" class="w-7 h-7" fill="#fff">
+          <path
+            d="M128.001 0C57.317 0 0 57.307 0 128.001c0 56.554 36.676 104.535 87.535 121.46 6.397 1.185 8.746-2.777 8.746-6.158 0-3.052-.12-13.135-.174-23.83-35.61 7.742-43.124-15.103-43.124-15.103-5.823-14.795-14.213-18.73-14.213-18.73-11.613-7.944.876-7.78.876-7.78 12.853.902 19.621 13.19 19.621 13.19 11.417 19.568 29.945 13.911 37.249 10.64 1.149-8.272 4.466-13.92 8.127-17.116-28.431-3.236-58.318-14.212-58.318-63.258 0-13.975 5-25.394 13.188-34.358-1.329-3.224-5.71-16.242 1.24-33.874 0 0 10.749-3.44 35.21 13.121 10.21-2.836 21.16-4.258 32.038-4.307 10.878.049 21.837 1.47 32.066 4.307 24.431-16.56 35.165-13.12 35.165-13.12 6.967 17.63 2.584 30.65 1.255 33.873 8.207 8.964 13.173 20.383 13.173 34.358 0 49.163-29.944 59.988-58.447 63.157 4.591 3.972 8.682 11.762 8.682 23.704 0 17.126-.148 30.91-.148 35.126 0 3.407 2.304 7.398 8.792 6.14C219.37 232.5 256 184.537 256 128.002 256 57.307 198.691 0 128.001 0Z" />
+        </svg>
+      </a>
+
+      <div *ngIf="login" class="relative">
+        <img [src]="userProfileImg" (error)="userProfileImg = 'default.jpg'"  alt="Profil" class="w-7 h-7 rounded-full">
+      </div>
+    </div>
+  </nav>
+</div>

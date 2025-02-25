@@ -1,0 +1,264 @@
+<div *ngIf="showPopup" class="fixed inset-0 flex justify-center items-center z-50">
+  <div class="fixed inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+  <div class="relative w-full max-w-2xl max-h-screen my-6 px-5 animate-fade-in opacity-0" style="animation-delay: 0.2s">
+    <div class="relative backdrop-blur-lg bg-gray-950 py-8 px-4 rounded-xl shadow-xl border border-white/20 popup">
+      <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-10 rounded-xl"></div>
+
+      <div class="relative z-10">
+        <div *ngIf="popupType === 'newlink'" class="space-y-6">
+          <h2 class="text-2xl font-bold text-white text-center">
+            Create a new link
+          </h2>
+
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <label for="linkName" class="text-gray-200 font-medium">Short link</label>
+                <button (click)="Random()"
+                  class="flex items-center px-4 py-2 bg-white/10 text-gray-200 rounded-xl border border-white/20 hover:bg-white/20 transition-all">
+                  <svg viewBox="0 0 20 20" class="size-4 mr-2" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" stroke="currentColor">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <defs></defs>
+                      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Dribbble-Light-Preview" transform="translate(-300.000000, -8079.000000)"
+                          fill="currentColor">
+                          <g id="icons" transform="translate(56.000000, 160.000000)">
+                            <path
+                              d="M253,7932.1047 C253,7933.2097 252.104,7934.1047 251,7934.1047 C249.896,7934.1047 249,7933.2097 249,7932.1047 C249,7930.9997 249.896,7930.1047 251,7930.1047 C252.104,7930.1047 253,7930.9997 253,7932.1047 L253,7932.1047 Z M259,7926.1047 C259,7927.2097 258.104,7928.1047 257,7928.1047 C255.896,7928.1047 255,7927.2097 255,7926.1047 C255,7924.9997 255.896,7924.1047 257,7924.1047 C258.104,7924.1047 259,7924.9997 259,7926.1047 L259,7926.1047 Z M262,7935.9997 C262,7936.5527 261.552,7936.9997 261,7936.9997 L247,7936.9997 C246.448,7936.9997 246,7936.5527 246,7935.9997 L246,7921.9997 C246,7921.4477 246.448,7920.9997 247,7920.9997 L261,7920.9997 C261.552,7920.9997 262,7921.4477 262,7921.9997 L262,7935.9997 Z M262,7918.9997 L246,7918.9997 C244.896,7918.9997 244,7919.8957 244,7920.9997 L244,7936.9997 C244,7938.1047 244.896,7938.9997 246,7938.9997 L262,7938.9997 C263.105,7938.9997 264,7938.1047 264,7936.9997 L264,7920.9997 C264,7919.8957 263.105,7918.9997 262,7918.9997 L262,7918.9997 Z"
+                              id="dice-[#22]"></path>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  Random
+                </button>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-gray-400 max-[400px]:text-xs">http://localhost:4200/s/</span>
+                <input [(ngModel)]="shortLink" id="linkName" type="text" minlength="2" maxlength="20"
+                  class="flex-1 bg-white/10 text-white border w-full border-white/20 rounded-xl px-4 py-2 outline-none focus:border-white/40 transition-all placeholder-gray-500"
+                  [ngClass]="{ 'border-white/40': shortLink.trim() !== '' }" placeholder="shortlink" />
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label for="linkURL" class="text-gray-200 font-medium">Link URL</label>
+              <input [(ngModel)]="linkURL" id="linkURL" type="text"
+                class="w-full bg-white/10 text-white border border-white/20 rounded-xl px-4 py-2 outline-none focus:border-white/40 transition-all placeholder-gray-500"
+                [ngClass]="{ 'border-white/40': linkURL.trim() !== '' }" placeholder="Enter the link URL" />
+            </div>
+
+            <div class="space-y-2">
+              <label for="webhookName" class="text-gray-200 font-medium">
+                Webhook URL
+                <span class="text-sm text-gray-400 ml-2">(Get notified when you pass a click milestone)</span>
+              </label>
+              <input [(ngModel)]="webhook" id="webhookName" type="text"
+                class="w-full bg-white/10 text-white border border-white/20 rounded-xl px-4 py-2 outline-none focus:border-white/40 transition-all placeholder-gray-500"
+                [ngClass]="{ 'border-white/40': webhook.trim() !== '' }"
+                placeholder="Leave blank if you don't want to receive webhooks" />
+            </div>
+
+            <div class="space-y-2">
+              <label for="Password" class="text-gray-200 font-medium">
+                Password protection
+              </label>
+              <input [(ngModel)]="password" id="Password" type="text"
+                class="w-full bg-white/10 text-white border border-white/20 rounded-xl px-4 py-2 outline-none focus:border-white/40 transition-all placeholder-gray-500"
+                [ngClass]="{ 'border-white/40': webhook.trim() !== '' }"
+                placeholder="Leave blank if you don't want a password" />
+            </div>
+          </div>
+
+          <div *ngIf="errorMessage" class="mt-4 text-red-500 text-sm">
+            {{ errorMessage }}
+          </div>
+
+          <div class="flex justify-end space-x-4">
+            <button (click)="togglePopup()"
+              class="px-6 py-2 text-red-400 hover:bg-red-400/10 rounded-xl transition-all">
+              Cancel
+            </button>
+            <button (click)="Create()"
+              class="px-6 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition-all">
+              Create
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="popupType === 'clickinfo'" class="space-y-6">
+          <h2 class="text-2xl font-bold text-white text-center">
+            Click information for
+            <span class="text-blue-400">/{{ linkData.short_link }}</span>
+          </h2>
+
+          <div *ngIf="message" class="mt-4" [innerHTML]="message"></div>
+
+          <div *ngIf="errorMessage" class="mt-4 text-red-500 text-sm">
+            {{ errorMessage }}
+          </div>
+
+          <button *ngIf="chartLoaded" (click)="toggleChartCountry()" id="toggleBtn"
+            class="mx-auto block px-4 py-2 bg-white/10 text-gray-200 rounded-xl border border-white/20 hover:bg-white/20 transition-all">
+            Show all
+          </button>
+
+          <canvas id="clickChart" height="110"></canvas>
+          <p class="text-gray-200 font-medium" *ngIf="message === 'Total clicks:'">
+            Click by country:
+          </p>
+          <canvas id="clickChartCountry" height="110"></canvas>
+        </div>
+
+        <div *ngIf="popupType === 'settings'" class="space-y-6">
+          <h2 class="text-2xl font-bold text-white text-center">
+            Edit <span class="text-blue-400">/{{ linkData.short_link }}</span>
+          </h2>
+
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="text-gray-200 font-medium">Short link</label>
+              <div class="flex items-center space-x-2">
+                <span class="text-gray-400 max-[400px]:text-xs">http://localhost:4200/s/</span>
+                <input [(ngModel)]="shortLinkEdit" type="text" minlength="2" maxlength="20"
+                  class="w-full outline-none flex-1 bg-white/10 text-white border border-white/20 rounded-xl px-4 py-2 focus:border-white/40 transition-all placeholder-gray-500"
+                  [ngClass]="{ 'border-white/40': shortLinkEdit.trim() !== '' }" placeholder="shortlink" />
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label for="linkURL" class="text-gray-200 font-medium">Link URL</label>
+              <input [(ngModel)]="linkURL" id="linkURL" type="text"
+                class="outline-none w-full bg-white/10 text-white border border-white/20 rounded-xl px-4 py-2 focus:border-white/40 transition-all placeholder-gray-500"
+                [ngClass]="{ 'border-white/40': linkURL.trim() !== '' }" placeholder="Enter the link URL" />
+            </div>
+
+            <div class="space-y-2">
+              <label for="webhookName" class="text-gray-200 font-medium">
+                Webhook URL
+                <span class="text-sm text-gray-400 ml-2">(Get notified when you pass a click milestone)</span>
+              </label>
+              <input [(ngModel)]="webhook" id="webhookName" type="text"
+                class="w-full bg-white/10 text-white border border-white/20 rounded-xl px-4 py-2 outline-none focus:border-white/40 transition-all placeholder-gray-500"
+                [ngClass]="{ 'border-white/40': webhook.trim() !== '' }"
+                placeholder="Leave blank if you don't want to receive webhooks" />
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <label for="password" class="text-gray-200 font-medium">
+                  Password protection
+                  <span class="text-sm text-gray-400 ml-2">Enter a new password or leave blank to keep the current
+                    one</span>
+                </label>
+              </div>
+              <div class="flex items-center space-x-2">
+                <input [(ngModel)]="newPassword" id="password" type="text"
+                  class="outline-none w-full bg-white/10 text-white border border-white/20 rounded-xl px-4 py-2 focus:border-white/40 transition-all placeholder-gray-500"
+                  [ngClass]="{ 'border-white/40': linkURL.trim() !== '' }" placeholder="Password" />
+                <button (click)="ResetPassword()"
+                  class="flex flex-1 items-center px-4 py-2 bg-green-500 text-gray-200 rounded-xl hover:bg-green-600 transition-all whitespace-nowrap max-[400px]:text-xs max-[400px]:px-2 max-[400px]:py-3">
+                  <svg viewBox="0 0 1920 1920" class="size-4 mr-2 max-[400px]:size-3" fill="currentColor">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M960 0v213.333c411.627 0 746.667 334.934 746.667 746.667S1371.627 1706.667 960 1706.667 213.333 1371.733 213.333 960c0-197.013 78.4-382.507 213.334-520.747v254.08H640V106.667H53.333V320h191.04C88.64 494.08 0 720.96 0 960c0 529.28 430.613 960 960 960s960-430.72 960-960S1489.387 0 960 0"
+                        fill-rule="evenodd"></path>
+                    </g>
+                  </svg>
+                  Clear Password
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <div *ngIf="errorMessage" class="mt-4 text-red-500 text-sm">
+            {{ errorMessage }}
+          </div>
+          <div *ngIf="message" class="mt-4 text-green-500 text-sm">
+            {{ message }}
+          </div>
+
+          <div class="flex justify-end space-x-4">
+            <button (click)="togglePopup()"
+              class="px-6 py-2 text-red-400 hover:bg-red-400/10 rounded-xl transition-all">
+              Cancel
+            </button>
+            <button (click)="edit()"
+              class="px-6 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition-all">
+              Edit
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="popupType === 'delete'" class="space-y-6 text-center">
+          <h2 class="text-2xl font-bold text-red-400">Delete Confirmation</h2>
+          <p class="text-gray-200">
+            Are you sure you want to delete
+            <strong>/{{ linkData.short_link }}</strong>?
+          </p>
+
+          <div class="flex justify-center space-x-4">
+            <button (click)="togglePopup()" class="px-6 py-2 text-gray-200 hover:bg-white/10 rounded-xl transition-all">
+              Cancel
+            </button>
+            <button (click)="delete()"
+              class="px-6 py-2 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-all">
+              Delete
+            </button>
+          </div>
+
+          <div *ngIf="errorMessage" class="mt-4 text-red-500 text-sm">
+            {{ errorMessage }}
+          </div>
+        </div>
+
+        <div *ngIf="popupType === 'deleteAccount'" class="space-y-6 text-center">
+          <h2 class="text-2xl font-bold text-red-400">Delete Account</h2>
+          <p class="text-gray-200">
+            Are you sure you want to delete your account?
+          </p>
+
+          <div class="flex justify-center space-x-4">
+            <button (click)="togglePopup()" class="px-6 py-2 text-gray-200 hover:bg-white/10 rounded-xl transition-all">
+              Cancel
+            </button>
+            <button (click)="deleteAccount()"
+              class="px-6 py-2 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-all">
+              Delete Account
+            </button>
+          </div>
+
+          <div *ngIf="errorMessage" class="mt-4 text-red-500 text-sm">
+            {{ errorMessage }}
+          </div>
+        </div>
+
+        <div *ngIf="popupType === 'success'" class="text-center">
+          <p class="text-green-400 text-lg font-medium">
+            Link created successfully
+          </p>
+        </div>
+
+        <div *ngIf="popupType === 'successDelete'" class="text-center">
+          <p class="text-green-400 text-lg font-medium">
+            Link successfully removed
+          </p>
+        </div>
+
+        <div *ngIf="popupType === 'successEdit'" class="text-center">
+          <p class="text-green-400 text-lg font-medium">
+            Link successfully edited
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

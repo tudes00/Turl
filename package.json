@@ -1,0 +1,17 @@
+{
+  "name": "turl",
+  "version": "1.0.0",
+  "description": "This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.",
+  "scripts": {
+    "dev": "concurrently \"cd frontend && ng serve --proxy-config proxy.conf.json\" \"cd backend && nodemon server.js\"",
+    "build": "cd frontend && ng build",
+    "start": "cd backend && nodemon server.js",
+    "prod": "npm run build && npm run start"
+  },
+  "keywords": [],
+  "author": "Tudes",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
