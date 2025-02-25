@@ -52,3 +52,6 @@ backend/.env
 
 .vscode/
 .editorconfig
+
+dist/*
+!dist/.gitkeep
