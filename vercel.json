@@ -16,7 +16,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/frontend/dist/$1"
+      "dest": "/frontend/dist/browser/$1"
     },
     {
       "src": "/api/(.*)",
