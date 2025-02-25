@@ -4,7 +4,7 @@
   "description": "This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.",
   "scripts": {
     "dev": "concurrently \"cd frontend && ng serve --proxy-config proxy.conf.json\" \"cd backend && nodemon server.js\"",
-    "build": "cd frontend && ng build",
+    "build": "cd frontend &&  npm run build --prod",
     "start": "cd backend && node server.js",
     "prod": "npm run build && npm run start"
   },
