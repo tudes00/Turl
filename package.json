@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "concurrently \"cd frontend && ng serve --proxy-config proxy.conf.json\" \"cd backend && nodemon server.js\"",
     "build": "cd frontend && ng build",
-    "start": "cd backend && nodemon server.js",
+    "start": "cd backend && node server.js",
     "prod": "npm run build && npm run start"
   },
   "keywords": [],
   "author": "Tudes",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "@angular/cli": "^19.1.8"
   }
 }
