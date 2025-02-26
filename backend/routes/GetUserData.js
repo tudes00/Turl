@@ -18,7 +18,6 @@ const GetUserData = async (req, res) => {
       sql: `SELECT webhook FROM connections WHERE id = :user_id; `,
       args: { user_id: userId },
     });
-    console.log(result);
     if (result.rows.length > 0) {
       return res.json({ message: result.rows[0], success: true });
     } else {

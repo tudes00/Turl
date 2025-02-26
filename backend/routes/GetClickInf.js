@@ -17,9 +17,7 @@ const GetClickInf = async (req, res) => {
       args: { link_id: LinkID.rows[0].id },
     });
 
-    console.log(result.rows.length);
     if (result.rows.length === 0) {
-      console.log("nooops");
       return res.json({ message: "noClick", success: true });
     }
 

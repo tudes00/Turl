@@ -49,19 +49,11 @@ const EditLink = async (req, res) => {
       sql: `SELECT id FROM links WHERE user_id = :user_id AND short_link = :short_link;`,
       args: { short_link: short_link, user_id: userId },
     });
-    console.log(
-      linkID.rows[0].id,
-      original_url,
-      short_link_edit,
-      userId,
-      webhook
-    );
     if (linkID.rows.length === 0) {
       return res.json({ message: "Not found", success: false });
     }
 
     const hashedPassword = password ? hashPassword(password) : null;
-    console.log(hashedPassword);
 
     await turso.execute({
       sql: `UPDATE links 

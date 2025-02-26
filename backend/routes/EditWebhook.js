@@ -18,8 +18,6 @@ const EditWebhook = async (req, res) => {
     const webhookRegex =
       /^https:\/\/discord\.com\/api\/webhooks\/\d+\/[A-z0-9_-]+$/;
 
-    console.log(webhook);
-
     if (webhook && !webhookRegex.test(webhook)) {
       return res.json({ message: "Invalid field", success: false });
     }

@@ -62,7 +62,9 @@ export class RedirectComponent implements OnInit {
   }
 
   async redirect() {
-    const url = new URL("https://eturlb.vercel.app/getUrl?short_link=salut_");
+    const url = new URL(
+      `https://eturlb.vercel.app/getUrl?short_link=${this.shortLink}`
+    );
     url.searchParams.append("password", this.password);
     try {
       const response = await fetch(url.toString(), {

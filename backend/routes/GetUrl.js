@@ -9,13 +9,11 @@ const GetUrl = async (req, res) => {
       sql: `SELECT original_url, password FROM links WHERE short_link = :short_link;`,
       args: { short_link: short_link },
     });
-    console.log(result.rows);
     if (result.rows.length === 0) {
       return res.json({ message: "Short link not found", success: false });
     }
 
     if (password && result.rows[0].password) {
-      console.log(password);
       const isCorrectPassword = await bcrypt.compare(
         password,
         result.rows[0].password

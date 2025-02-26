@@ -49,7 +49,6 @@ const CreateNewLink = async (req, res) => {
     }
 
     const hashedPassword = password ? hashPassword(password) : null;
-    console.log(hashedPassword);
 
     await turso.execute({
       sql: `INSERT INTO links (short_link, original_url, user_id, webhook, password) VALUES (  :short_link, :original_url, :user_id, :webhook, :hashed_password);`,

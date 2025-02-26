@@ -34,8 +34,6 @@ const AddClick = async (req, res) => {
       return res.status(403).json({ message: "Access Denied" });
     }
 
-    console.log("IP: ", ip);
-
     const validIP =
       /^(25[0-5]|2[0-4]\d|1\d\d|\d{1,2})\.(25[0-5]|2[0-4]\d|1\d\d|\d{1,2})\.(25[0-5]|2[0-4]\d|1\d\d|\d{1,2})\.(25[0-5]|2[0-4]\d|1\d\d|\d{1,2})$/;
     if (!validIP.test(ip)) {
@@ -69,7 +67,6 @@ const AddClick = async (req, res) => {
       })
       .then((data) => {
         Country = data.country || "Unknown";
-        console.log("Country:", Country);
 
         turso
           .execute({
@@ -85,7 +82,6 @@ const AddClick = async (req, res) => {
               .then((result) => {
                 const webhook = result.rows[0].webhook;
                 if (webhook !== "") {
-                  console.log("Webhook:", webhook);
                   turso
                     .execute({
                       sql: `SELECT COUNT(*) AS count FROM clicks WHERE link_id = :id;`,

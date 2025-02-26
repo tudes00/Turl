@@ -20,9 +20,7 @@ const turso = createClient({
 
 async function verifyToken(req, res, next) {
   try {
-    console.log("cooki: ", req.cookies);
     const token = req.cookies.token;
-    console.log("token: ", token);
 
     const loggedInUser = JSON.parse(atob(token.split(".")[1]));
     const mail = loggedInUser.email;
@@ -42,7 +40,6 @@ async function verifyToken(req, res, next) {
 
     const payload = ticket.getPayload();
     req.user = payload;
-    console.log(mail, "pass");
     next();
   } catch (e) {
     return res.status(401).json({ error: "Invalid token" });
@@ -50,7 +47,6 @@ async function verifyToken(req, res, next) {
 }
 
 async function verifyShortlink(req, res, next) {
-  console.log("verifyShortlink...");
   try {
     const shortlinkQuery = req.query.short_link;
     const shortlinkBody = req.body.short_link;
@@ -65,7 +61,6 @@ async function verifyShortlink(req, res, next) {
       });
     }
     const short_link = shortlinkQuery || shortlinkBody;
-    console.log("Shortlink test: ", short_link);
 
     if (!short_link) {
       return res.json({
@@ -85,7 +80,6 @@ async function verifyShortlink(req, res, next) {
       });
     }
 
-    console.log("Shortlink pass: ", short_link);
     req.short_link = short_link;
     next();
   } catch (e) {

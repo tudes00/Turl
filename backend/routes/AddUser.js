@@ -39,8 +39,7 @@ const addUser = async (req, res) => {
       args: { mail: mail },
     });
 
-    console.log("New connection: " + mail);
-    console.log("Cookie défini:", req.cookies);
+    console.log("New connection");
     res.json({ message: "Cookie set and user added successfully" });
   } catch (err) {
     console.error(err);

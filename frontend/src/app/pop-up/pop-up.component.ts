@@ -99,7 +99,7 @@ export class PopUpComponent {
     this.errorMessage = "Please, wait...";
     this.message = "";
 
-    fetch("https://eturl.vercel.app/resetPassword", {
+    fetch("https://eturlb.vercel.app/resetPassword", {
       method: "PATCH",
       credentials: "include",
       headers: {
@@ -159,7 +159,7 @@ export class PopUpComponent {
 
     this.errorMessage = "Please, wait...";
 
-    fetch("https://eturl.vercel.app/createNewLink", {
+    fetch("https://eturlb.vercel.app/createNewLink", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -198,7 +198,7 @@ export class PopUpComponent {
 
   delete() {
     this.errorMessage = "Please, wait...";
-    fetch("https://eturl.vercel.app/deleteLink", {
+    fetch("https://eturlb.vercel.app/deleteLink", {
       method: "DELETE",
       credentials: "include",
       headers: {
@@ -228,7 +228,7 @@ export class PopUpComponent {
 
   deleteAccount() {
     this.errorMessage = "Please, wait...";
-    fetch("https://eturl.vercel.app/deleteUser", {
+    fetch("https://eturlb.vercel.app/deleteUser", {
       method: "DELETE",
       credentials: "include",
       headers: {
@@ -448,7 +448,7 @@ export class PopUpComponent {
   clickInfo() {
     this.message = "Loading...";
     fetch(
-      `https://eturl.vercel.app/GetClickInfo?short_link=${this.linkData.short_link}`,
+      `https://eturlb.vercel.app/GetClickInfo?short_link=${this.linkData.short_link}`,
       {
         method: "GET",
         credentials: "include",
@@ -502,7 +502,7 @@ export class PopUpComponent {
 
     this.errorMessage = "Please, wait...";
 
-    fetch("https://eturl.vercel.app/editLink", {
+    fetch("https://eturlb.vercel.app/editLink", {
       method: "PATCH",
       credentials: "include",
       headers: {
@@ -536,7 +536,7 @@ export class PopUpComponent {
   }
 
   getWebhook() {
-    fetch("https://eturl.vercel.app/getUserData", {
+    fetch("https://eturlb.vercel.app/getUserData", {
       method: "GET",
       credentials: "include",
       headers: {
