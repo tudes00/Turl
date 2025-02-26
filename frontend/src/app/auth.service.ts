@@ -1,10 +1,10 @@
 declare var google: any;
-import { Injectable, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { CookieService } from './cookie.service';
+import { Injectable, inject } from "@angular/core";
+import { Router } from "@angular/router";
+import { CookieService } from "./cookie.service";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AuthService {
   router = inject(Router);
@@ -13,9 +13,9 @@ export class AuthService {
 
   signOut() {
     google.accounts.id.disableAutoSelect();
-    this.cookieService.deleteCookie('loggedInUser');
-    this.cookieService.deleteCookie('token');
-    this.router.navigate(['/login']).then(() => {
+    this.cookieService.deleteCookie("loggedInUser");
+    this.cookieService.deleteCookie("token");
+    this.router.navigate(["/login"]).then(() => {
       window.location.reload();
     });
   }
@@ -23,38 +23,38 @@ export class AuthService {
   handleLogin(response: any) {
     if (response) {
       const token = response.credential;
-      const payload = JSON.parse(atob(token.split('.')[1]));
+      const payload = JSON.parse(atob(token.split(".")[1]));
       const time = payload.exp;
 
       this.cookieService.setCookie(
-        'loggedInUser',
+        "loggedInUser",
         JSON.stringify(payload),
         time
       );
-      this.cookieService.setCookie('token', token, time);
 
-      fetch('http://localhost:4200/api/addUser', {
-        method: 'POST',
-        credentials: 'include',
+      fetch("https://eturlb.vercel.app/addUser", {
+        method: "POST",
+        credentials: "include",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({ token: token }),
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error('Error');
+            throw new Error("Error");
           }
           return response.json();
         })
         .then((data) => {
-          this.router.navigate(['/dashboard']).then(() => {
+          this.router.navigate(["/dashboard"]).then(() => {
             setTimeout(() => {
               window.location.reload();
             }, 100);
           });
         })
         .catch((error) => {
-          console.error('Error:', error);
+          console.error("Error:", error);
         });
     }
   }

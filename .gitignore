@@ -55,3 +55,4 @@ backend/.env
 
 dist/*
 !dist/.gitkeep
+.vercel

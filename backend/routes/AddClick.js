@@ -104,10 +104,10 @@ const AddClick = async (req, res) => {
                               {
                                 author: {
                                   name: "🚀 Turl",
-                                  url: "http://localhost:4200/",
+                                  url: "https://eturlb.vercel.app/",
                                 },
                                 title: "🎉 New click milestone reached!",
-                                description: `The shortened link **[/${short_link}](http://localhost:4200/s/${short_link})** has reached a new click milestone! 🎯`,
+                                description: `The shortened link **[/${short_link}](https://eturlb.vercel.app/s/${short_link})** has reached a new click milestone! 🎯`,
                                 color: 4739732,
                                 fields: [
                                   {
@@ -124,7 +124,7 @@ const AddClick = async (req, res) => {
                                 footer: {
                                   text: "🔥 Stay tuned for more updates!",
                                   icon_url:
-                                    "http://localhost:4200/iconTurlV1.svg",
+                                    "https://eturlb.vercel.app/iconTurlV1.svg",
                                 },
                                 timestamp: new Date(),
                               },

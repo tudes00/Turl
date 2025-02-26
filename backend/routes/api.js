@@ -23,7 +23,7 @@ router.get("/getClickInfo", verifyToken, verifyShortlink, GetClickInf);
 router.get("/getUserData", verifyToken, GetUserData);
 router.get("/checkIfPassord", verifyShortlink, CheckIfPass);
 
-router.post("/addUser", verifyToken, AddUser);
+router.post("/addUser", AddUser);
 router.post("/createNewLink", verifyToken, verifyShortlink, CreateNewLink);
 router.post("/addClick", verifyShortlink, AddClick);
 

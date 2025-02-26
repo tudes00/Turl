@@ -68,7 +68,7 @@
               <label for="Password" class="text-gray-200 font-medium">
                 Password protection
               </label>
-              <input [(ngModel)]="password" id="Password" type="text"
+              <input [(ngModel)]="password" id="Password" type="password"
                 class="w-full bg-white/10 text-white border border-white/20 rounded-xl px-4 py-2 outline-none focus:border-white/40 transition-all placeholder-gray-500"
                 [ngClass]="{ 'border-white/40': webhook.trim() !== '' }"
                 placeholder="Leave blank if you don't want a password" />
@@ -158,7 +158,7 @@
                 </label>
               </div>
               <div class="flex items-center space-x-2">
-                <input [(ngModel)]="newPassword" id="password" type="text"
+                <input [(ngModel)]="newPassword" id="password" type="password"
                   class="outline-none w-full bg-white/10 text-white border border-white/20 rounded-xl px-4 py-2 focus:border-white/40 transition-all placeholder-gray-500"
                   [ngClass]="{ 'border-white/40': linkURL.trim() !== '' }" placeholder="Password" />
                 <button (click)="ResetPassword()"

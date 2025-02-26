@@ -20,7 +20,9 @@ const turso = createClient({
 
 async function verifyToken(req, res, next) {
   try {
+    console.log("cooki: ", req.cookies);
     const token = req.cookies.token;
+    console.log("token: ", token);
 
     const loggedInUser = JSON.parse(atob(token.split(".")[1]));
     const mail = loggedInUser.email;
