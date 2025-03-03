@@ -35,7 +35,7 @@ Manage your links easily with Turl, an advanced and open-source URL shortener pa
    GOOGLE_CLIENT_SECRET=
    NODE_ENV=local
    ```
-4. Start the application:
+4. Run Turl locally:
    ```sh
    npm run dev
    ```
