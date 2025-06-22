@@ -43,3 +43,7 @@ Manage your links easily with Turl, an advanced and open-source URL shortener pa
 ### Requirements ✅
 
 - Node.js & npm installed.
+
+
+# TODO list 📇:
+- [ ] add tracking pixel maker
