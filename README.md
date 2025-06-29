@@ -1,5 +1,7 @@
 ## Turl | Advanced URL Shortener
 
+![image](https://github.com/user-attachments/assets/0f864be1-8618-4921-a116-dcb5971ba8f8)
+
 Manage your links easily with Turl, an advanced and open-source URL shortener packed with powerful features! 🚀
 
 ## Features ✨
