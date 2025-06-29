@@ -100,7 +100,7 @@ export class DashboardComponent {
   }
 
   copy(link: string) {
-    navigator.clipboard.writeText("http://localhost:4200/s/" + link);
+    navigator.clipboard.writeText("https://localhost:4200/s/" + link);
     const tooltip = document.createElement("p");
     tooltip.className =
       "z-30 absolute bg-gray-950 text-white px-2 py-1 text-sm rounded opacity-0 transition-opacity duration-500 pointer-events-none rounded border border-gray-500";
