@@ -13,7 +13,7 @@ Manage your links easily with Turl, an advanced and open-source URL shortener pa
 ## Tech Stack 🏗️
 
 - **Frontend**: Angular, Tailwind CSS, Chart.js, Lucide Icons
-- **Backend**: Express.js, Turso, bcrypt, Google Auth
+- **Backend**: Express.js, Turso, bcrypt, Google Auth, Turso
 - **Other Tools**: express-rate-limit, cookie-parser
 
 ## Installation 🛠️
