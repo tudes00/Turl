@@ -4,6 +4,10 @@
 
 Manage your links easily with Turl, an advanced and open-source URL shortener packed with powerful features! 🚀
 
+## PageSpeed Insights: ⚡
+
+<img style="width: 600px; margin-top: 20px" alt="TurlPSI" src="https://tudes.vercel.app/images/psi.svg">
+
 ## Features ✨
 
 - 📩 **Webhook Integration**: Send notifications to Discord.
